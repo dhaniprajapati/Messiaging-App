@@ -28,10 +28,17 @@ public class NewController {
         return "Hello "+name+" from BridgeLabz";
     }
 
-    //UC3- use POST request method
+    //UC4- use POST request method
     //URL- http://localhost:8080/api/post (in postman- POST API)
     @PostMapping("/post")
     public String sayHello(@RequestBody UserDTO user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
+    
+    //UC5- use PUT request method to put first name as path variable and query as last name
+    //URL- http://localhost:8080/api/put/Mark?lastName=Taylor (in postman- PUT API)
+    @PutMapping("/put/{firstName}")
+    public String sayHelloPut(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
     }
 }
