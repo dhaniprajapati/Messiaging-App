@@ -27,4 +27,11 @@ public class NewController {
     public String sayHelloPath(@PathVariable String name){
         return "Hello "+name+" from BridgeLabz";
     }
+
+    //UC3- use POST request method
+    //URL- http://localhost:8080/api/post (in postman- POST API)
+    @PostMapping("/post")
+    public String sayHello(@RequestBody UserDTO user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
 }
